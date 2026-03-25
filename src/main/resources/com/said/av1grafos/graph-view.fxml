@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.said.av1grafos.controller.GraphController">
+    <children>
+        <SplitPane dividerPositions="0.7" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <AnchorPane fx:id="graphContainer" style="-fx-background-color: #ffffff;">
+                    <children>
+                        <Label text="Visualizacao do Grafo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" style="-fx-text-fill: #cccccc; -fx-font-size: 18px;" />
+                    </children>
+                </AnchorPane>
+                <VBox spacing="15.0" style="-fx-background-color: #f4f4f4;">
+                    <children>
+                        <Label text="Painel de Controle" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                        <Separator prefWidth="200.0" />
+
+                        <VBox spacing="5.0">
+                            <Label text="Configuracao de Busca" style="-fx-font-weight: bold;" />
+                            <HBox spacing="10.0">
+                                <VBox>
+                                    <Label text="Origem (S):" />
+                                    <TextField fx:id="txtSource" prefWidth="50.0" text="0" />
+                                </VBox>
+                                <VBox>
+                                    <Label text="Destino (T):" />
+                                    <TextField fx:id="txtTarget" prefWidth="50.0" />
+                                </VBox>
+                            </HBox>
+                            <Button fx:id="btnRunBfs" text="Executar BFS" onAction="#handleRunBFS" maxWidth="Infinity" />
+                            <Button fx:id="btnRunDfs" text="Executar DFS" onAction="#handleRunDFS" maxWidth="Infinity" />
+                        </VBox>
+
+                        <Label fx:id="lblStructureTitle" text="Estrutura de Dados:" style="-fx-font-weight: bold;" />
+                        <HBox fx:id="dataStructureView" spacing="5.0" prefHeight="40.0" style="-fx-background-color: #e0e0e0; -fx-padding: 5; -fx-border-color: #bcbcbc;" />
+                        <Separator prefWidth="200.0" />
+                        <Separator prefWidth="200.0" />
+                        <Label text="Estatisticas e Propriedades:" style="-fx-font-weight: bold; -fx-font-size: 14px;" />
+
+                        <VBox fx:id="statsContainer" spacing="8.0" style="-fx-background-color: #ffffff; -fx-padding: 10; -fx-border-color: #dddddd;">
+                            <children>
+                                <Label fx:id="lblTipo" text="Tipo: -" />
+                                <Label fx:id="lblOrdemTamanho" text="Ordem |V|: 0 | Tamanho |E|: 0" />
+                                <Label fx:id="lblDensidade" text="Densidade: -" />
+                                <Label fx:id="lblDistanciaT" text="Distancia: -" />
+                                <Label text="Graus dos Vertices:" style="-fx-font-weight: bold;" />
+                                <TextArea fx:id="txtGraus" prefHeight="100.0" editable="false" style="-fx-font-family: 'Consolas';" />
+                            </children>
+                        </VBox>
+
+                        <Label text="Propriedades e Resultados" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="outputArea" VBox.vgrow="ALWAYS" editable="false" wrapText="true" style="-fx-font-family: 'Consolas'; -fx-font-size: 12px;" />
+                    </children>
+                    <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                    </padding>
+                </VBox>
+            </items>
+        </SplitPane>
+    </children>
+</AnchorPane>
